@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -19,6 +20,8 @@ import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
     private static Statement stmt = null;
+    private static PreparedStatement pstmt = null;
+    private static PreparedStatement psCheckUserExists = null;
     private static ResultSet rs = null;
     private static Connection connect = null;
     private static String url = "jdbc:mysql://localhost:3306/daycare";
@@ -51,19 +54,34 @@ public class SignUpController implements Initializable {
             public void handle(ActionEvent event) {
                 String userName = usrTextField.getText();
                 String password = passTextField.getText();
+                try {
+                    psCheckUserExists = connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
+                    psCheckUserExists.setString(1,userName);
+                    rs = psCheckUserExists.executeQuery();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 if (usrTextField.getText().isEmpty() && passTextField.getText().isEmpty()){
-                    Alert alert = new Alert(Alert.AlertType.WARNING, "Give input");
-                    alert.show();
-                    System.out.println("Give Input");
+                    signUpMsgLbl.setText("User name and password are empty");
+                    signUpMsgLbl.setTextFill(Color.RED);
                 }
                 else {
                     try {
-                        insert(userName, password);
+                        if (rs.isBeforeFirst()){
+                            signUpMsgLbl.setText("User exist, try different one");
+                            signUpMsgLbl.setTextFill(Color.RED);
+
+                        }else {
+                            insert(userName, password);
+                            System.out.println("Query execute successfully");
+                            signUpMsgLbl.setText("you are signed up!");
+                            usrTextField.setText("");
+                            passTextField.setText("");
+                        }
+
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("Query execute successfully");
-                    signUpMsgLbl.setText("you are signed up!");
                 }
             }
         });
