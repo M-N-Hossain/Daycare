@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="468.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daycare2.ChildMenuController">
+   <children>
+      <Label layoutX="211.0" layoutY="42.0" text="DayCare">
+         <font>
+            <Font name="Algerian" size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="parentalBackBtn" layoutX="243.0" layoutY="315.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="92.0" text="Back">
+         <font>
+            <Font name="Bodoni MT" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="addParentInfoBtn" layoutX="195.0" layoutY="167.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="186.0" text="Add Parent Info">
+         <font>
+            <Font name="Bodoni MT" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="seeParentInfoBtn" layoutX="196.0" layoutY="228.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="186.0" text="See Parent Info">
+         <font>
+            <Font name="Bodoni MT" size="19.0" />
+         </font>
+      </Button>
+      <Label layoutX="174.0" layoutY="90.0" text="Parental  Menu">
+         <font>
+            <Font name="Algerian" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

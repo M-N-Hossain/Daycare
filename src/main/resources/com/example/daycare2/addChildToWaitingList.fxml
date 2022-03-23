@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="545.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daycare2.ChildMenuController">
+   <children>
+      <TextField fx:id="waitingListLastNameTxtFld" layoutX="281.0" layoutY="214.0" prefHeight="26.0" prefWidth="314.0" />
+      <Label layoutX="281.0" layoutY="32.0" text="DayCare">
+         <font>
+            <Font name="Algerian" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="177.0" layoutY="75.0" text="Add Child to Waiting list">
+         <font>
+            <Font name="Algerian" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="133.0" layoutY="165.0" text="First Name">
+         <font>
+            <Font name="Bell MT" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="135.0" layoutY="216.0" text="Last Name">
+         <font>
+            <Font name="Bell MT" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="133.0" layoutY="261.0" text="Date of Birth">
+         <font>
+            <Font name="Bell MT" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="136.0" layoutY="309.0" text="Gourdian Id">
+         <font>
+            <Font name="Bell MT" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="waitingListFirstNameTxtFld" layoutX="281.0" layoutY="163.0" prefHeight="26.0" prefWidth="314.0" />
+      <TextField fx:id="waitingListGuardianIdTxtFld" layoutX="281.0" layoutY="307.0" prefHeight="26.0" prefWidth="314.0" />
+      <DatePicker fx:id="waitingListDateOfBirthTxtFld" layoutX="281.0" layoutY="259.0" prefHeight="26.0" prefWidth="314.0" />
+      <Button fx:id="waitingListEnterBtn" layoutX="303.0" layoutY="381.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Enter">
+         <font>
+            <Font name="Bell MT" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="waitingListCanclBtn" layoutX="462.0" layoutY="381.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Cancel">
+         <font>
+            <Font name="Bell MT" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

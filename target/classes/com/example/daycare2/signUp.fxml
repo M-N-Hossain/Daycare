@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="623.0" style="-fx-background-color: #0cc7ba;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daycare2.SignUpController">
+   <children>
+      <TextField fx:id="usrTextField" layoutX="279.0" layoutY="175.0" prefHeight="26.0" prefWidth="250.0" promptText="User Name" />
+      <PasswordField fx:id="passTextField" layoutX="279.0" layoutY="220.0" prefHeight="26.0" prefWidth="250.0" promptText="Password" />
+      <Button fx:id="signUpBtn" layoutX="333.0" layoutY="283.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="142.0" text="Sign up">
+         <font>
+            <Font name="Bell MT" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="logInBtn" layoutX="332.0" layoutY="325.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="142.0" text="Log in " textFill="#1e1f20">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Bell MT" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="41.0" layoutY="126.0" prefHeight="36.0" prefWidth="193.0" text="Welcome to ">
+         <font>
+            <Font name="Algerian" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="229.0" prefHeight="36.0" prefWidth="226.0" text="application">
+         <font>
+            <Font name="Algerian" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="182.0" prefHeight="36.0" prefWidth="150.0" text="DayCare ">
+         <font>
+            <Font name="Algerian" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="signUpMsgLbl" layoutX="303.0" layoutY="259.0" prefHeight="18.0" prefWidth="210.0" text="Label" textFill="#1931b9" />
+      <ImageView fx:id="signUpIcon" fitHeight="108.0" fitWidth="168.0" layoutX="349.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/sign-up-icon.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
