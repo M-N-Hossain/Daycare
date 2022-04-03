@@ -25,6 +25,8 @@ public class LogInController implements Initializable {
     @FXML
     private ImageView logInIcon;
     @FXML
+    private ImageView logInImg2;
+    @FXML
     protected Label logInMsgLbl;
     @FXML
     private Button logInBtn;
@@ -41,6 +43,10 @@ public class LogInController implements Initializable {
         File iconFile = new File("src/main/resources/com/example/daycare2/images/logInIcon.png");
         Image icon = new Image(iconFile.toURI().toString());
         logInIcon.setImage(icon);
+
+        File loginImg = new File("src/main/resources/com/example/daycare2/images/logInImg2.png");
+        Image img = new Image(loginImg.toURI().toString());
+        logInImg2.setImage(img);
 
         logInMsgLbl.setText(" ");
         logInBtn.setOnAction(new EventHandler<ActionEvent>() {

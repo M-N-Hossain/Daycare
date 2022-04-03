@@ -17,6 +17,7 @@ public class User {
         this.fourthColumn = fourthColumn;
         this.fifthColumn = fifthColumn;
     }
+    public User(){}
 
 
 

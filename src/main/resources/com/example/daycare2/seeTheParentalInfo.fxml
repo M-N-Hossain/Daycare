@@ -1,33 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daycare2.ShowTableData">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="779.0" style="-fx-background-color: #a7c2c4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daycare2.ShowTableData">
    <children>
-      <TableView fx:id="parentListTblview" layoutX="34.0" layoutY="86.0" prefHeight="367.0" prefWidth="555.0">
+      <TableView fx:id="parentTblView" layoutX="244.0" layoutY="96.0" onMouseClicked="#getSelected3" prefHeight="366.0" prefWidth="526.0" style="-fx-border-color: black;">
          <columns>
-            <TableColumn fx:id="parentListIdClmn" prefWidth="73.5999755859375" text="Parent Id" />
-            <TableColumn fx:id="parentListFnClmn" minWidth="0.0" prefWidth="123.20001220703125" text="First Name" />
-            <TableColumn fx:id="parentListLnClmn" minWidth="5.60003662109375" prefWidth="115.20001220703125" text="Last Name" />
-            <TableColumn fx:id="parentListPNClmn" minWidth="0.0" prefWidth="151.199951171875" text="Phone Number" />
-            <TableColumn fx:id="parentListAddressClmn" prefWidth="87.20001220703125" text="Address" />
+            <TableColumn fx:id="firstColumn" prefWidth="65.5999755859375" text="ID" />
+            <TableColumn fx:id="secondColumn" minWidth="0.0" prefWidth="107.199951171875" text="Father Name" />
+            <TableColumn fx:id="thirdColumn" minWidth="5.60003662109375" prefWidth="124.0" text="Mother Name" />
+            <TableColumn fx:id="fourthColumn" minWidth="0.0" prefWidth="130.4000244140625" text="Address" />
+            <TableColumn fx:id="fifthColumn" prefWidth="97.60007324218748" text="Contact Nr." />
          </columns>
+         <opaqueInsets>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </opaqueInsets>
       </TableView>
       <Label layoutX="23.0" layoutY="8.0" text="DayCare">
          <font>
             <Font name="Algerian" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="42.0" text="Parent List">
+      <Label layoutX="87.0" layoutY="42.0" text="Child List">
          <font>
             <Font name="Algerian" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="parentListBackBtn" layoutX="522.0" layoutY="29.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="psBackBtn" layoutX="676.0" layoutY="38.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="Back">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="firstTextField" layoutX="50.0" layoutY="199.0" promptText="Father Name" />
+      <TextField fx:id="secondTextField" layoutX="50.0" layoutY="241.0" promptText="Mother Name" />
+      <TextField fx:id="thirdTextField" layoutX="50.0" layoutY="283.0" promptText="Address" />
+      <TextField fx:id="fourthTextField" layoutX="50.0" layoutY="325.0" promptText="Contact Nr" />
+      <Button fx:id="psDeleteBtn" layoutX="139.0" layoutY="370.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" text="Delete" />
+      <Button fx:id="psUpdateBTn" layoutX="23.0" layoutY="370.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" text="Update" />
+      <HBox layoutX="16.0" layoutY="476.0" prefHeight="72.0" prefWidth="746.0" style="-fx-background-color: #6e918d;" />
+      <Label layoutX="23.0" layoutY="491.0" text="Children:">
+         <font>
+            <Font name="Algerian" size="18.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="125.0" layoutY="483.0" prefHeight="54.0" prefWidth="598.0" style="-fx-background-color: #a7c2c4;" />
    </children>
 </AnchorPane>

@@ -5,17 +5,19 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class ChildMenuController implements Initializable {
     public ChildMenuController(){}
     //childMenu Attributes
-    @FXML
-    private Button addNewChildBtn;
+
     @FXML
     private Button addToWaitingListBtn;
     @FXML
@@ -54,6 +56,8 @@ public class ChildMenuController implements Initializable {
     @FXML
     private Button csCanclBtn;
     @FXML
+    private Label csLable;
+    @FXML
     private Button csEnterBtn;
     @FXML
     private DatePicker dateOfBirthTxtFld;
@@ -65,18 +69,20 @@ public class ChildMenuController implements Initializable {
     private TextField lastNameTxtFld;
 
     // Add to waiting list attributes
+
     @FXML
-    private Button waitingListCanclBtn;
+    private TextField fathersNameTextField;
     @FXML
-    private DatePicker waitingListDateOfBirthTxtFld;
+    private TextField mothersNameTextField;
     @FXML
-    private Button waitingListEnterBtn;
+    private TextField addressTextField;
     @FXML
-    private TextField waitingListFirstNameTxtFld;
+    private TextField contactNrTextField;
     @FXML
-    private TextField waitingListGuardianIdTxtFld;
+    private Button addingCanclBtn;
     @FXML
-    private TextField waitingListLastNameTxtFld;
+    private Button addingEnterBtn;
+
 
 
     // See child Attributes
@@ -112,23 +118,15 @@ public class ChildMenuController implements Initializable {
 //  --------------Children menu button actions------------------------------------------------
         try {
 //----------------- Children menu list: 1 > Add new child data to database -------------------------------
-        addNewChildBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    Utils.changeScene(event,"addChildToChildrenList.fxml","Add child menu");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+
 
 //----------------- Children menu list: 2 > Add to waiting list -------------------------------
         addToWaitingListBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    Utils.changeScene(event,"addChildToWaitingList.fxml","Add to waiting list menu");
+                    Utils.changeScene3("adding.fxml","Add Menu");
+//                    Utils.changeScene(event,"adding.fxml","Add to waiting list menu");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -152,7 +150,8 @@ public class ChildMenuController implements Initializable {
                     @Override
                     public void handle(ActionEvent event) {
                         try {
-                            Utils.changeScene(event,"seeTheWaitingList.fxml","Waiting List");
+                            Utils.changeScene3("adding.fxml","Add Menu");
+                            //Utils.changeScene(event,"seeTheWaitingList.fxml","Waiting List");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -164,7 +163,7 @@ public class ChildMenuController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    Utils.changeScene(event,"parentalInfo.fxml", "Parental Info menu");
+                    Utils.changeScene(event,"seeTheParentalInfo.fxml", "Parental Info menu");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -188,22 +187,36 @@ public class ChildMenuController implements Initializable {
             e.printStackTrace();
         }
 
-        // add child button actions
+//-------------------------- add child to children list ----------------------------------------------------
         try {
+            csLable.setText("");
+
             csEnterBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    String guardianId = guardianIdTxtFld.getText();
+
 
                     try {
-                        Utils.addChildToList("children",firstNameTxtFld.getText(), lastNameTxtFld.getText(), dateOfBirthTxtFld.getValue(),
-                                guardianId);
+                        Utils.addChildToList("children",firstNameTxtFld.getText(), lastNameTxtFld.getText(), dateOfBirthTxtFld.getValue(),"");
+
+
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-
+                    firstNameTxtFld.setText("");
+                    lastNameTxtFld.setText("");
+                    //dateOfBirthTxtFld.setValue(LocalDate.parse(""));
+                    guardianIdTxtFld.setText(" ");
+                    csLable.setText("Added");
+                    csLable.setTextFill(Color.BLUE);
+                    try {
+                        Utils.changeScene3("addParentalInfo.fxml", "Add parent info");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
+
         }catch (NullPointerException e){
             e.printStackTrace();
         }
@@ -224,110 +237,110 @@ public class ChildMenuController implements Initializable {
         }
 
         // add to waiting list button actions
-        try {
-            waitingListEnterBtn.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    try {
-                        Utils.addChildToList("waiting_list", waitingListFirstNameTxtFld.getText(), waitingListLastNameTxtFld.getText(),
-                                waitingListDateOfBirthTxtFld.getValue(), waitingListGuardianIdTxtFld.getText());
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            });
-
-            waitingListCanclBtn.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    try {
-                        Utils.changeScene(event, "childrenMenu.fxml", " Children Menu");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            addingEnterBtn.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent event) {
+//                    try {
+//                        Utils.addChildToList("waiting_list", waitingListFirstNameTxtFld.getText(), waitingListLastNameTxtFld.getText(),
+//                                waitingListDateOfBirthTxtFld.getValue(), waitingListGuardianIdTxtFld.getText());
+//                    } catch (SQLException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                }
+//            });
+//
+//            addingCanclBtn.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent event) {
+//                    try {
+//                        Utils.changeScene(event, "childrenMenu.fxml", " Children Menu");
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
+//
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 
 
 //----------- Parental info menu list: 1 > add parental info --------------------------------------------------
-        try {
-            addParentInfoBtn.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    try {
-                        Utils.changeScene(event, "addParentalInfo.fxml", " Add parent info menu");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
+//        try {
+//            addParentInfoBtn.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent event) {
+//                    try {
+//                        Utils.changeScene(event, "addParentalInfo.fxml", " Add parent info menu");
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
 
 //----------- Parental info menu list: 2 > see parental info --------------------------------------------------
-            try {
-                seeParentInfoBtn.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        try {
-                            Utils.changeScene(event, "seeTheParentalInfo.fxml", "parent info");
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            try {
+//                seeParentInfoBtn.setOnAction(new EventHandler<ActionEvent>() {
+//                    @Override
+//                    public void handle(ActionEvent event) {
+//                        try {
+//                            Utils.changeScene(event, "seeTheParentalInfo.fxml", "parent info");
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                });
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
 
 
 //----------- Parental info back button to children menu------- --------------------------------------------
-            parentalBackBtn.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    try {
-                        Utils.changeScene(event, "childrenMenu.fxml", " Children menu");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//            parentalBackBtn.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent event) {
+//                    try {
+//                        Utils.changeScene(event, "childrenMenu.fxml", " Children menu");
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 //----------------------------------Add parental info ----------------------------------------------------------
-        try {
-            parentalInfoEnterBtn.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    try {
-                        Utils.addParentalInfo(parentalInfoFirstNameTxtFld.getText(),parentalInfoLastNameTxtFld.getText(),
-                                parentalInfoPhoneTxtFld.getText(),parentalInfoAddressTxtFld.getText());
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            parentalInfoCanclBtn.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    try {
-                        Utils.changeScene(event, "parentalInfo.fxml","Parental Info menu");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            parentalInfoEnterBtn.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent event) {
+//                    try {
+//                        Utils.addParentalInfo(parentalInfoFirstNameTxtFld.getText(),parentalInfoLastNameTxtFld.getText(),
+//                                parentalInfoPhoneTxtFld.getText(),parentalInfoAddressTxtFld.getText());
+//                    } catch (SQLException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
+//            parentalInfoCanclBtn.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent event) {
+//                    try {
+//                        Utils.changeScene(event, "parentalInfo.fxml","Parental Info menu");
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 
     }

@@ -11,11 +11,11 @@
    <children>
       <TableView fx:id="employeeListTblview" layoutX="34.0" layoutY="86.0" prefHeight="367.0" prefWidth="555.0">
          <columns>
-            <TableColumn fx:id="employeeListIdClmn" prefWidth="73.5999755859375" text="Id" />
-            <TableColumn fx:id="employeeListFnClmn" minWidth="0.0" prefWidth="123.20001220703125" text="First Name" />
-            <TableColumn fx:id="employeeListLnClmn" minWidth="5.60003662109375" prefWidth="115.20001220703125" text="Last Name" />
-            <TableColumn fx:id="employeeListAddClmn" minWidth="0.0" prefWidth="151.199951171875" text="Address" />
-            <TableColumn fx:id="employeeListDiClmn" prefWidth="87.20001220703125" text="Department Id" />
+            <TableColumn fx:id="firstColumn" prefWidth="73.5999755859375" text="Id" />
+            <TableColumn fx:id="secondColumn" minWidth="0.0" prefWidth="123.20001220703125" text="First Name" />
+            <TableColumn fx:id="thirdColumn" minWidth="5.60003662109375" prefWidth="115.20001220703125" text="Last Name" />
+            <TableColumn fx:id="fourthColumn" minWidth="0.0" prefWidth="151.199951171875" text="Address" />
+            <TableColumn fx:id="fifthColumn" prefWidth="87.20001220703125" text="Department Id" />
          </columns>
       </TableView>
       <Label layoutX="23.0" layoutY="8.0" text="DayCare">

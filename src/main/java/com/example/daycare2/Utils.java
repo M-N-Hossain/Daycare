@@ -31,17 +31,6 @@ public class Utils {
 
 
 
-
-
-    public static void changeScene(ActionEvent event, String fxml, String tittle) throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(Utils.class.getResource(fxml));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle(tittle);
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
-    }
-
     public static void connection() {
         user = "root";
         passWord = "Nhn@hid1122";
@@ -52,6 +41,30 @@ public class Utils {
         }
     }
 
+    public static void changeScene(ActionEvent event, String fxml, String tittle) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Utils.class.getResource(fxml));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle(tittle);
+        stage.setScene(new Scene(fxmlLoader.load()));
+        stage.show();
+    }
+    public static void changeScene3(String fxml, String tittle) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle(tittle);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public static void changeScene4(String fxml, String tittle) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle(tittle);
+        stage.setScene(scene);
+        stage.close();
+    }
 
 
     public static void checkLoginUser(ActionEvent event, String userName, String password) {
@@ -75,38 +88,57 @@ public class Utils {
             }
         } catch (SQLException | IOException e) {
             e.printStackTrace();
-        }finally {
-            closeConnection();
         }
 
     }
 
-    public static void addChildToList(String tableName, String firstName, String lastName, LocalDate date, String guardianId) throws SQLException {
+    public static void addChildToList(String tableName, String first_Name, String last_Name, LocalDate date, String parent_ID) throws SQLException {
         connection();
-        pstmt = connect.prepareStatement("INSERT INTO " + tableName + " (firstName, lastName, birthday, guardianId)" +
+        pstmt = connect.prepareStatement("INSERT INTO " + tableName + " (first_Name, last_Name, birth_Day, parent_ID)" +
                 "VALUES (?,?,?,?)");
-        pstmt.setString(1, firstName);
-        pstmt.setString(2, lastName);
+        pstmt.setString(1, first_Name);
+        pstmt.setString(2, last_Name);
         pstmt.setDate(3, Date.valueOf(date));
-        pstmt.setString(4, guardianId);
+        pstmt.setString(4, parent_ID);
 
         pstmt.execute();
 
         System.out.println(" Execute Successfully");
     }
 
-    public static void addParentalInfo(String firstName, String lastName, String phone_number, String address) throws SQLException {
-        connection();
-        pstmt = connect.prepareStatement("INSERT INTO parental_info (firstName, lastName, phone_number, address)" +
-                "VALUES (?,?,?,?)");
-        pstmt.setString(1, firstName);
-        pstmt.setString(2, lastName);
-        pstmt.setString(3, phone_number);
-        pstmt.setString(4, address);
+    public static void addParentalInfo(String father_Name, String mother_Name, String address, String contact_Nr) throws SQLException {
 
+        connection();
+        pstmt = connect.prepareStatement("INSERT INTO parent_List (father_Name, mother_Name, address, contact_Nr)" +
+                "VALUES (?,?,?,?)");
+        pstmt.setString(1, father_Name);
+        pstmt.setString(2, mother_Name);
+        pstmt.setString(3, address);
+        pstmt.setString(4, contact_Nr);
         pstmt.execute();
 
         System.out.println(" Execute Successfully");
+    }
+
+    public static void addParent(String father_Name, String mother_Name, String address, String contact_Nr) throws SQLException {
+        connection();
+        stmt = connect.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM parent_List WHERE father_Name = '"+ father_Name +"' AND mother_Name = '"+ mother_Name +
+                "' AND address = '"+ address + "' AND contact_Nr = '"+ contact_Nr +"';");
+
+        if (rs.isBeforeFirst()){
+            System.out.println("Already Exist");
+        }
+        else {
+            pstmt = connect.prepareStatement("INSERT INTO parent_List (father_Name, mother_Name, address, contact_Nr)" +
+                    "VALUES (?,?,?,?)");
+            pstmt.setString(1, father_Name);
+            pstmt.setString(2, mother_Name);
+            pstmt.setString(3, address);
+            pstmt.setString(4, contact_Nr);
+            pstmt.execute();
+        }
+
     }
 
 
@@ -162,34 +194,25 @@ public class Utils {
         pstmt.execute();
     }
 
+    public static void update(){
+        connection();
 
-
-
-    private static void closeConnection() {
-        if (rs != null) {
-            try {
-
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if (pstmt != null) {
-            try {
-                pstmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        if (connect != null) {
-            try {
-                connect.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
     }
+
+    public static String getParent_Id(String father_Name, String mother_Name, String address, String contact_Nr) throws SQLException {
+        String parent_ID = "";
+        connection();
+        stmt = connect.createStatement();
+//        rs = stmt.executeQuery("SELECT parent_ID FROM parent_List WHERE father_Name = '"+ father_Name +" ' AND mother_Name = '"+ mother_Name +
+//                "' AND address = '"+ address + "' AND contact_Nr = '"+ contact_Nr +"';");
+        rs = stmt.executeQuery("SELECT parent_ID FROM parent_List WHERE contact_Nr = '" + contact_Nr + "';");
+        while (rs.next()){
+            parent_ID = rs.getString("parent_ID");
+        }
+        return  parent_ID;
+    }
+
+
 
 
 }

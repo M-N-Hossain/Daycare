@@ -11,10 +11,10 @@
    <children>
       <TableView fx:id="scheduleListTblview" layoutX="34.0" layoutY="86.0" prefHeight="367.0" prefWidth="555.0">
          <columns>
-            <TableColumn fx:id="scheduleListEIClmn" prefWidth="88.00002670288086" text="Employee Id" />
-            <TableColumn fx:id="scheduleListMSClmn" minWidth="0.0" prefWidth="132.0" text="Morning Shift" />
-            <TableColumn fx:id="scheduleListESClmn" minWidth="5.60003662109375" prefWidth="146.3999786376953" text="Evening Shift" />
-            <TableColumn fx:id="scheduleListDClmn" minWidth="0.0" prefWidth="190.4000244140625" text="Date" />
+            <TableColumn fx:id="firstColumn" prefWidth="88.00002670288086" text="Employee Id" />
+            <TableColumn fx:id="secondColumn" minWidth="0.0" prefWidth="132.0" text="Morning Shift" />
+            <TableColumn fx:id="thirdColumn" minWidth="5.60003662109375" prefWidth="146.3999786376953" text="Evening Shift" />
+            <TableColumn fx:id="fourthColumn" minWidth="0.0" prefWidth="190.4000244140625" text="Date" />
          </columns>
       </TableView>
       <Label layoutX="23.0" layoutY="8.0" text="DayCare">

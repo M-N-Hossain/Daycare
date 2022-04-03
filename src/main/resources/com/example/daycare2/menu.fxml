@@ -1,36 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="468.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daycare2.MenuController">
+<AnchorPane prefHeight="569.0" prefWidth="779.0" style="-fx-background-color: #abd9de;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daycare2.MenuController">
    <children>
-      <Label layoutX="232.0" layoutY="85.0" text=" Menu">
+      <ImageView fx:id="menuImg" fitHeight="427.0" fitWidth="307.0" layoutX="55.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/daycares.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="86.0" layoutY="-61.0" text=" Menu">
          <font>
             <Font name="Algerian" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="logOutBtn" layoutX="243.0" layoutY="315.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="92.0" text="Log out">
+      <Button fx:id="logOutBtn" layoutX="514.0" layoutY="452.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #499ca6;" text="Log out">
          <font>
             <Font name="Bodoni MT" size="19.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Button fx:id="childInfoBtn" layoutX="195.0" layoutY="166.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="186.0" text="Child Info">
+      <Button fx:id="employeeInfoBtn" layoutX="442.0" layoutY="368.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="242.0" style="-fx-background-color: #499ca6;" styleClass="dsdf" text="Employee Info">
          <font>
             <Font name="Bodoni MT" size="19.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Button fx:id="employeeInfoBtn" layoutX="196.0" layoutY="228.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="186.0" text="Employee Info">
+      <Label layoutX="141.0" layoutY="20.0" prefHeight="62.0" prefWidth="442.0" text="welcome to daycare">
          <font>
-            <Font name="Bodoni MT" size="19.0" />
-         </font>
-      </Button>
-      <Label layoutX="112.0" layoutY="32.0" text="welcome to daycare">
-         <font>
-            <Font name="Algerian" size="30.0" />
+            <Font name="Algerian" size="40.0" />
          </font>
       </Label>
+      <Button fx:id="addChildBtn" layoutX="442.0" layoutY="97.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="242.0" style="-fx-background-color: #499ca6;" text="Add Child ">
+         <font>
+            <Font name="Bodoni MT" size="19.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="childrenListBtn" layoutX="442.0" layoutY="165.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="242.0" style="-fx-background-color: #499ca6;" text="Children List">
+         <font>
+            <Font name="Bodoni MT" size="19.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="waitingListBtn" layoutX="442.0" layoutY="234.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="242.0" style="-fx-background-color: #499ca6;" text="Waiting List">
+         <font>
+            <Font name="Bodoni MT" size="19.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="parentListBtn" layoutX="442.0" layoutY="299.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="242.0" style="-fx-background-color: #499ca6;" text="Parent List">
+         <font>
+            <Font name="Bodoni MT" size="19.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

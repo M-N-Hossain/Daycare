@@ -37,15 +37,21 @@ public class SignUpController implements Initializable {
     @FXML
     private ImageView signUpIcon;
     @FXML
+    private ImageView signUpImg2;
+    @FXML
     private Button signUpBtn;
     @FXML
     private Button logInBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File iconFile = new File("src/main/resources/com/example/daycare2/images/logInIcon.png");
+        File iconFile = new File("src/main/resources/com/example/daycare2/images/sign-up-icon.png");
         Image icon = new Image(iconFile.toURI().toString());
         signUpIcon.setImage(icon);
+
+        File signUpImgFile = new File("src/main/resources/com/example/daycare2/images/logInImg2.png");
+        Image signUmImg = new Image(signUpImgFile.toURI().toString());
+        signUpImg2.setImage(signUmImg);
 
         connection();
         signUpMsgLbl.setText("");
@@ -75,6 +81,7 @@ public class SignUpController implements Initializable {
                             insert(userName, password);
                             System.out.println("Query execute successfully");
                             signUpMsgLbl.setText("you are signed up!");
+                            signUpMsgLbl.setTextFill(Color.BLUE);
                             usrTextField.setText("");
                             passTextField.setText("");
                         }

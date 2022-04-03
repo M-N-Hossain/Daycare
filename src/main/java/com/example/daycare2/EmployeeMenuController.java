@@ -56,7 +56,7 @@ public class EmployeeMenuController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-// ---------------------Employee Menu list 3 : See employee list----------------------------------------------
+// ---------------------Employee Menu list 1 : see the schedule ----------------------------------------------
             seeTheScheduleBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
@@ -120,6 +120,7 @@ public class EmployeeMenuController implements Initializable{
 
 // ---------------------make schedule button actions------------------------------------------------------
         try {
+            shiftChoiceBox.getItems().addAll(shift);
             addScheduleBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {

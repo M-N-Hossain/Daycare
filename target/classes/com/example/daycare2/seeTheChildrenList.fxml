@@ -4,18 +4,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daycare2.ShowTableData">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="779.0" style="-fx-background-color: #a7c2c4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.daycare2.ShowTableData">
    <children>
-      <TableView fx:id="tblview" layoutX="34.0" layoutY="86.0" prefHeight="367.0" prefWidth="555.0">
+      <TableView fx:id="tblview" layoutX="244.0" layoutY="96.0" onMouseClicked="#getSelected" prefHeight="366.0" prefWidth="520.0">
          <columns>
-            <TableColumn fx:id="idClmn" prefWidth="73.5999755859375" text="Id" />
-            <TableColumn fx:id="fnClmn" minWidth="0.0" prefWidth="123.20001220703125" text="First Name" />
-            <TableColumn fx:id="lnClmn" minWidth="5.60003662109375" prefWidth="115.20001220703125" text="Last Name" />
-            <TableColumn fx:id="bdClmn" minWidth="0.0" prefWidth="151.199951171875" text="Birth Date" />
-            <TableColumn fx:id="giClmn" prefWidth="87.20001220703125" text="Guardian Id" />
+            <TableColumn fx:id="firstColumn" prefWidth="65.5999755859375" text="ID" />
+            <TableColumn fx:id="secondColumn" minWidth="0.0" prefWidth="107.199951171875" text="First Name" />
+            <TableColumn fx:id="thirdColumn" minWidth="5.60003662109375" prefWidth="124.0" text="Last Name" />
+            <TableColumn fx:id="fourthColumn" minWidth="0.0" prefWidth="130.4000244140625" text="Birth Date" />
+            <TableColumn fx:id="fifthColumn" prefWidth="92.0" text="Parent ID" />
          </columns>
       </TableView>
       <Label layoutX="23.0" layoutY="8.0" text="DayCare">
@@ -28,6 +30,57 @@
             <Font name="Algerian" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="childListBackBtn" layoutX="508.0" layoutY="30.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="childListBackBtn" layoutX="701.0" layoutY="38.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="63.0" text="Back">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font></Button>
+      <TextField fx:id="firstTextField" layoutX="50.0" layoutY="199.0" promptText="First Name" />
+      <TextField fx:id="secondTextField" layoutX="50.0" layoutY="241.0" promptText="Last Name" />
+      <TextField fx:id="thirdTextField" layoutX="50.0" layoutY="283.0" promptText="Birthday" />
+      <TextField fx:id="fourthTextField" layoutX="50.0" layoutY="325.0" promptText="Parent ID" />
+      <Button fx:id="csDeleteBtn" layoutX="139.0" layoutY="370.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" text="Delete" />
+      <Button fx:id="csUpdateBTn" layoutX="23.0" layoutY="370.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" text="Update" />
+      <HBox layoutX="16.0" layoutY="473.0" prefHeight="72.0" prefWidth="746.0" style="-fx-background-color: #6e918d;" />
+      <Label layoutX="23.0" layoutY="491.0" text="parents:">
+         <font>
+            <Font name="Algerian" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="137.0" layoutY="492.0" prefHeight="18.0" prefWidth="126.0" text="Father Name" underline="true">
+         <font>
+            <Font name="Bell MT Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="293.0" layoutY="491.0" prefHeight="18.0" prefWidth="126.0" text="Mother Name" underline="true">
+         <font>
+            <Font name="Bell MT Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" layoutX="459.0" layoutY="491.0" prefHeight="18.0" prefWidth="110.0" text="Address" textAlignment="RIGHT" underline="true">
+         <font>
+            <Font name="Bell MT Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="637.0" layoutY="491.0" prefHeight="18.0" prefWidth="102.0" text="Contact Nr" underline="true">
+         <font>
+            <Font name="Bell MT Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="motherLBL" alignment="CENTER" layoutX="271.0" layoutY="522.0" prefHeight="18.0" prefWidth="126.0" text="Label" textAlignment="JUSTIFY">
+         <font>
+            <Font name="Bell MT" size="14.0" />
+         </font></Label>
+      <Label fx:id="addressLBL" alignment="TOP_CENTER" layoutX="440.0" layoutY="521.0" prefHeight="18.0" prefWidth="126.0" text="Label" textAlignment="JUSTIFY">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="phoneNrLBL" layoutX="637.0" layoutY="522.0" prefHeight="18.0" prefWidth="101.0" text="Label" textAlignment="JUSTIFY">
+         <font>
+            <Font name="Bell MT" size="14.0" />
+         </font></Label>
+      <Label fx:id="fatherLBL" alignment="TOP_CENTER" layoutX="118.0" layoutY="522.0" prefHeight="18.0" prefWidth="126.0" text="Label" textAlignment="JUSTIFY">
+         <font>
+            <Font name="Bell MT" size="14.0" />
+         </font></Label>
    </children>
 </AnchorPane>
